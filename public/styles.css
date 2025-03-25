@@ -8,6 +8,7 @@ body {
     background-color: #f9e7e7;
     font-family: 'Arial', sans-serif;
     background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    flex-direction: column;
 }
 
 .envelope {
@@ -68,6 +69,35 @@ h1 {
     color: #ff6b6b;
 }
 
+.navigation {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+    background-color: #ff5252;
+}
+
+.nav-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(255, 107, 107, 0.4);
+}
+
 @keyframes float {
     0% {
         transform: translateY(0px);
@@ -87,5 +117,10 @@ h1 {
     
     .signature {
         font-size: 1.5rem;
+    }
+    
+    .nav-button {
+        font-size: 1rem;
+        padding: 10px 20px;
     }
 } 
