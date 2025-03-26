@@ -11,6 +11,7 @@ body {
     background-image: radial-gradient(#ff9cce 1px, transparent 1px);
     background-size: 20px 20px;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .love-container {
@@ -174,4 +175,224 @@ h1 {
     .signature {
         font-size: 1.4rem;
     }
+}
+
+.good-morning-container {
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.good-morning-card {
+    background: linear-gradient(135deg, #ffedbc, #ffd3f8);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.sun-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: rotate 20s linear infinite;
+    display: inline-block;
+}
+
+.good-morning-card h2 {
+    font-family: 'Pacifico', cursive;
+    color: #ff6b6b;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(255, 107, 107, 0.3);
+}
+
+.morning-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: #444;
+    text-align: left;
+    animation: simple-fade-in 1.5s ease forwards;
+}
+
+.morning-message p {
+    margin-bottom: 15px;
+    overflow: visible;
+    border-right: none;
+    white-space: normal;
+    animation: none;
+    opacity: 1;
+}
+
+.morning-message p:first-child {
+    font-weight: 700;
+    color: #ff6b6b;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .good-morning-card {
+        padding: 20px;
+    }
+    
+    .sun-icon {
+        font-size: 2.5rem;
+    }
+    
+    .good-morning-card h2 {
+        font-size: 1.7rem;
+    }
+    
+    .morning-message {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .good-morning-card {
+        padding: 15px;
+    }
+    
+    .sun-icon {
+        font-size: 2rem;
+    }
+    
+    .good-morning-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .morning-message {
+        font-size: 1.1rem;
+    }
+}
+
+/* Floating hearts around the good morning card */
+.good-morning-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z' fill='%23ff6b6b' opacity='0.1'/%3E%3C/svg%3E");
+    z-index: -1;
+    pointer-events: none;
+    animation: rotate-slow 120s linear infinite;
+}
+
+/* Shimmering border effect */
+.good-morning-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 3px rgba(255, 107, 107, 0.3);
+    opacity: 0;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Animated text underline for the greeting */
+.good-morning-card h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.good-morning-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #ffb6c1, #ff6b6b);
+    background-size: 200% 100%;
+    border-radius: 3px;
+    animation: gradient-shift 3s ease infinite;
+}
+
+/* Animated emoji decorations */
+.emoji-decoration {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: float-in-out 7s ease-in-out infinite;
+}
+
+.emoji-flower-1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.emoji-heart-1 {
+    top: 15%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.emoji-star-1 {
+    bottom: 15%;
+    left: 8%;
+    animation-delay: 2s;
+}
+
+.emoji-sparkle-1 {
+    bottom: 10%;
+    right: 8%;
+    animation-delay: 3s;
+}
+
+/* Keyframes for all animations */
+@keyframes rotate-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float-in-out {
+    0% { transform: translateY(20px); opacity: 0; }
+    20% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-20px); opacity: 0; }
+}
+
+@keyframes simple-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Sunrise effect for the sun icon */
+.sun-icon {
+    position: relative;
+    animation: sunrise 3s ease-out forwards, rotate 20s linear infinite;
+}
+
+@keyframes sunrise {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 } 
