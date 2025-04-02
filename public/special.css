@@ -395,4 +395,223 @@ h1 {
 @keyframes sunrise {
     0% { transform: translateY(20px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Miss You Cutie Section Styles */
+.miss-you-cutie {
+    margin: 40px 0;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.miss-you-card {
+    background: linear-gradient(135deg, #fff6f6, #ffe6f2);
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ffcce0;
+}
+
+.miss-you-header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.miss-emoji {
+    font-size: 3rem;
+    display: inline-block;
+    margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.miss-you-header h2 {
+    font-family: 'Pacifico', cursive;
+    color: #ff5c8d;
+    font-size: 1.8rem;
+    margin: 10px 0;
+    text-shadow: 1px 1px 3px rgba(255, 92, 141, 0.3);
+}
+
+.miss-you-content {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #444;
+    text-align: left;
+}
+
+.miss-you-content p {
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.highlight {
+    color: #ff5c8d;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 92, 141, 0.2);
+    border-radius: 5px;
+}
+
+.beating-heart {
+    display: inline-block;
+    animation: heartbeat 1.2s ease-in-out infinite;
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin: 0 3px;
+}
+
+.miss-you-signature {
+    text-align: right;
+    margin-top: 25px;
+    font-size: 1.4rem;
+}
+
+.miss-you-signature p:first-child {
+    margin-bottom: 5px;
+}
+
+.miss-you-signature p:last-child {
+    color: #ff5c8d;
+    font-weight: bold;
+}
+
+/* Flying hearts */
+.flying-hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.flying-heart {
+    position: absolute;
+    font-size: 15px;
+    animation: fly-heart 10s linear infinite;
+    opacity: 0.7;
+}
+
+/* Cute decorations */
+.cute-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cute-deco {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: float-rotate 6s ease-in-out infinite;
+}
+
+.deco-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.deco-2 {
+    top: 15%;
+    right: 7%;
+    animation-delay: 1s;
+}
+
+.deco-3 {
+    bottom: 20%;
+    left: 8%;
+    animation-delay: 2s;
+}
+
+.deco-4 {
+    bottom: 15%;
+    right: 6%;
+    animation-delay: 3s;
+}
+
+.deco-5 {
+    top: 50%;
+    right: 5%;
+    animation-delay: 4s;
+}
+
+/* Countdown container */
+.countdown-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(255, 92, 141, 0.2);
+    border: 1px dashed #ff5c8d;
+}
+
+.countdown-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #ff5c8d;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#countdown {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #ff5c8d;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fly-heart {
+    0% {
+        transform: translate(-10px, 100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(110vw, -100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float-rotate {
+    0% { 
+        transform: translateY(0) rotate(0deg); 
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateY(-15px) rotate(10deg); 
+        opacity: 0.8;
+    }
+    100% { 
+        transform: translateY(0) rotate(0deg); 
+        opacity: 0.6;
+    }
 } 

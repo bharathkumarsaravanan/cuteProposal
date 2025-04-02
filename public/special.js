@@ -100,6 +100,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }, 3000 + Math.random() * 2000);
     });
+
+    // Create flying hearts
+    createFlyingHearts();
+    
+    // Update countdown
+    updateCountdown();
 });
 
 function createFloatingHearts() {
@@ -160,4 +166,59 @@ function createParticles(x, y) {
             particle.remove();
         }, 1000);
     }
-} 
+}
+
+// Create flying hearts
+function createFlyingHearts() {
+    const container = document.querySelector('.flying-hearts-container');
+    if (!container) return;
+    
+    const heartColors = ['❤️', '💕', '💖', '💗', '💓', '💘'];
+    
+    // Create 15 flying hearts
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'flying-heart';
+        heart.textContent = heartColors[Math.floor(Math.random() * heartColors.length)];
+        
+        // Random starting position
+        const startX = Math.random() * 100;
+        const delay = Math.random() * 10;
+        const duration = 7 + Math.random() * 7;
+        
+        heart.style.left = `${startX}%`;
+        heart.style.animationDuration = `${duration}s`;
+        heart.style.animationDelay = `${delay}s`;
+        
+        container.appendChild(heart);
+    }
+}
+
+// Set the meeting date - April 3, 9:40 AM
+const meetingDate = new Date(2024, 3, 3, 9, 40, 0, 0); // Note: Month is 0-indexed, so 3 = April
+
+// Update the countdown function to use the meeting date
+function updateCountdown() {
+    const now = new Date();
+    const difference = meetingDate - now;
+    
+    // If the meeting time has passed
+    if (difference < 0) {
+        document.getElementById('countdown').innerHTML = "We're together now! ❤️";
+        return;
+    }
+    
+    // Calculate time units
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    
+    // Update the countdown display
+    document.getElementById('countdown').innerHTML = 
+        `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds until I see you!`;
+}
+
+// Update the countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial call to display countdown immediately 
