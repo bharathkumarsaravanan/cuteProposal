@@ -614,4 +614,237 @@ h1 {
         transform: translateY(0) rotate(0deg); 
         opacity: 0.6;
     }
+}
+
+/* For-cutie section styles */
+.cutie-letter-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    perspective: 1000px;
+}
+
+.cutie-letter {
+    background: linear-gradient(135deg, #fff8f8 0%, #fff0f5 100%);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3), 0 0 15px rgba(255, 182, 193, 0.5);
+    padding: 30px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    overflow: hidden;
+    border: 2px solid #ffcce0;
+}
+
+.cutie-letter:hover {
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4), 0 0 20px rgba(255, 182, 193, 0.6);
+    transform: translateY(-5px) scale(1.01);
+}
+
+.cutie-letter-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.cutie-letter-header h2 {
+    font-family: 'Pacifico', cursive;
+    color: #ff6b9d;
+    text-align: center;
+    margin: 0 15px;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+    animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+.cutie-letter-decoration {
+    font-size: 1.8rem;
+    animation: spin-slow 8s linear infinite;
+}
+
+.cutie-envelope-flap {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, #fff8f8);
+    transform-origin: top;
+    transform: rotateX(180deg);
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 5;
+}
+
+.cutie-letter:hover .cutie-envelope-flap {
+    transform: rotateX(0deg);
+    opacity: 0.7;
+}
+
+.cutie-letter-content {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+
+.cutie-greeting {
+    font-size: 1.6rem;
+    color: #ff6b9d;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.cutie-paragraph {
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.cutie-paragraph:hover {
+    transform: translateX(5px);
+}
+
+.highlight-word {
+    color: #ff4081;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.pulse-highlight {
+    animation: pulse 1s ease;
+}
+
+.floating-emoji {
+    font-size: 1.2rem;
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.float-up {
+    animation: float-up 1s ease;
+}
+
+.cutie-signature {
+    text-align: right;
+    margin-top: 30px;
+    font-size: 1.4rem;
+    color: #ff6b9d;
+}
+
+.beating-heart-large {
+    display: inline-block;
+    font-size: 1.8rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.cutie-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cutie-deco {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.5;
+    animation: float 6s ease-in-out infinite;
+}
+
+.c-deco-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.c-deco-2 { top: 20%; right: 8%; animation-delay: 1s; }
+.c-deco-3 { bottom: 15%; left: 10%; animation-delay: 2s; }
+.c-deco-4 { bottom: 30%; right: 5%; animation-delay: 3s; }
+.c-deco-5 { top: 50%; left: 8%; animation-delay: 4s; }
+.c-deco-6 { top: 70%; right: 10%; animation-delay: 2.5s; }
+.c-deco-7 { bottom: 10%; right: 15%; animation-delay: 1.5s; }
+
+.heart-burst {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Animations */
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float-up {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(-15px); opacity: 1; }
+    100% { transform: translateY(-30px); opacity: 0; }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .cutie-letter {
+        padding: 20px;
+    }
+    
+    .cutie-letter-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .cutie-letter-content {
+        font-size: 1.2rem;
+    }
+    
+    .cutie-greeting {
+        font-size: 1.4rem;
+    }
+    
+    .cutie-signature {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cutie-letter-container {
+        margin: 30px auto;
+    }
+    
+    .cutie-letter {
+        padding: 15px;
+    }
+    
+    .cutie-letter-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .cutie-letter-content {
+        font-size: 1.1rem;
+    }
 } 

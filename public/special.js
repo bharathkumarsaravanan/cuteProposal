@@ -106,6 +106,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update countdown
     updateCountdown();
+
+    // Initialize the for-cutie section
+    initializeCutieLetter();
+
+    // Initialize animations for the cutie letter
+    animateCutieLetter();
 });
 
 function createFloatingHearts() {
@@ -221,4 +227,125 @@ function updateCountdown() {
 
 // Update the countdown every second
 setInterval(updateCountdown, 1000);
-updateCountdown(); // Initial call to display countdown immediately 
+updateCountdown(); // Initial call to display countdown immediately
+
+// Function to initialize the cute letter
+function initializeCutieLetter() {
+    const forCutieDiv = document.getElementById('for-cutie');
+    
+    // Create the letter content
+    forCutieDiv.innerHTML = `
+        <div class="cutie-letter-container">
+            <div class="cutie-letter">
+                <div class="cutie-letter-header">
+                    <div class="cutie-letter-decoration left">💕</div>
+                    <h2>Just One Day Apart...</h2>
+                    <div class="cutie-letter-decoration right">💕</div>
+                </div>
+                
+                <div class="cutie-envelope-flap"></div>
+                
+                <div class="cutie-letter-content">
+                    <p class="cutie-greeting">To My Cutie,</p>
+                    
+                    <p class="cutie-paragraph">It's just been one day since I saw you… and I already <span class="highlight-word">miss you</span> like crazy. Yesterday felt like magic—being with you, seeing you smile, hearing your voice right next to me instead of through the phone… <span class="highlight-word">uff</span>, my heart is still floating somewhere around cloud 999. <span class="floating-emoji">☁️</span></p>
+                    
+                    <p class="cutie-paragraph">You looked so cute, I couldn't take my eyes off you. Honestly, if staring was a crime, I'd be doing life in jail by now. <span class="floating-emoji">👀</span> That smile, that little shy expression you gave me when I looked at you like a pagal—it's stuck in my head like my favorite song. And trust me, it's on repeat. <span class="floating-emoji">🎵</span></p>
+                    
+                    <p class="cutie-paragraph">I didn't even realize how much I needed that time with you until I had it. You being around makes everything better. Even the silence feels perfect when it's with you. And now today… feels so quiet again. Like something's missing. Like you. <span class="floating-emoji">💭</span></p>
+                    
+                    <p class="cutie-paragraph">Stop being this cute, cutie. You're out here living in my head rent-free, blushing up my thoughts, and making me miss you even more. <span class="floating-emoji">🥰</span></p>
+                    
+                    <p class="cutie-paragraph">One day apart and I'm already counting down to the next time I get to hold your hand again. <span class="floating-emoji">⏱️</span></p>
+                    
+                    <div class="cutie-signature">
+                        <p>Forever yours, always your pagal,</p>
+                        <p>The one who's hopelessly in love with your face, smile, and everything you are <span class="beating-heart-large">💖</span></p>
+                    </div>
+                </div>
+                
+                <div class="cutie-decorations">
+                    <span class="cutie-deco c-deco-1">🌸</span>
+                    <span class="cutie-deco c-deco-2">✨</span>
+                    <span class="cutie-deco c-deco-3">💖</span>
+                    <span class="cutie-deco c-deco-4">🦋</span>
+                    <span class="cutie-deco c-deco-5">🌈</span>
+                    <span class="cutie-deco c-deco-6">🌷</span>
+                    <span class="cutie-deco c-deco-7">💝</span>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Add animation to the letter
+    animateCutieLetter();
+}
+
+// Function to animate elements in the cutie letter
+function animateCutieLetter() {
+    // Animate the floating emojis
+    const floatingEmojis = document.querySelectorAll('.floating-emoji');
+    floatingEmojis.forEach(emoji => {
+        setInterval(() => {
+            emoji.classList.add('float-up');
+            setTimeout(() => {
+                emoji.classList.remove('float-up');
+            }, 1000);
+        }, 3000 + Math.random() * 2000);
+    });
+    
+    // Animate the highlighted words
+    const highlightedWords = document.querySelectorAll('.highlight-word');
+    highlightedWords.forEach(word => {
+        setInterval(() => {
+            word.classList.add('pulse-highlight');
+            setTimeout(() => {
+                word.classList.remove('pulse-highlight');
+            }, 1000);
+        }, 4000 + Math.random() * 3000);
+    });
+    
+    // Add click interaction to the letter
+    const cutieLetter = document.querySelector('.cutie-letter');
+    cutieLetter.addEventListener('click', function(e) {
+        createHeartBurst(e.clientX, e.clientY);
+    });
+}
+
+// Function to create a burst of hearts when clicking on the letter
+function createHeartBurst(x, y) {
+    const container = document.querySelector('.love-container');
+    const heartEmojis = ['❤️', '💕', '💖', '💘', '💓', '💗', '💝', '💞'];
+    
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+        heart.className = 'heart-burst';
+        heart.style.position = 'fixed';
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '1000';
+        heart.style.transition = 'all 1s ease-out';
+        heart.style.opacity = '1';
+        
+        container.appendChild(heart);
+        
+        // Random direction explosion
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 150 + 50;
+        const xDestination = x + Math.cos(angle) * distance;
+        const yDestination = y + Math.sin(angle) * distance;
+        
+        setTimeout(() => {
+            heart.style.transform = `translate(${xDestination - x}px, ${yDestination - y}px) rotate(${Math.random() * 360}deg)`;
+            heart.style.opacity = '0';
+        }, 10);
+        
+        // Remove heart after animation completes
+        setTimeout(() => {
+            heart.remove();
+        }, 1000);
+    }
+} 
