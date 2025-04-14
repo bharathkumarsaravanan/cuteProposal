@@ -847,4 +847,236 @@ h1 {
     .cutie-letter-content {
         font-size: 1.1rem;
     }
+}
+
+/* Admiration section styles */
+.admiration-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    perspective: 1000px;
+}
+
+.admiration-letter {
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f8ff 100%);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(100, 149, 237, 0.3), 0 0 15px rgba(135, 206, 250, 0.5);
+    padding: 30px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    overflow: hidden;
+    border: 2px solid #b0e0e6;
+}
+
+.admiration-letter:hover {
+    box-shadow: 0 20px 40px rgba(100, 149, 237, 0.4), 0 0 20px rgba(135, 206, 250, 0.6);
+    transform: translateY(-5px) scale(1.01);
+}
+
+.admiration-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.admiration-header h2 {
+    font-family: 'Pacifico', cursive;
+    color: #6495ed;
+    text-align: center;
+    margin: 0 15px;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(100, 149, 237, 0.2);
+    animation: gentle-float 3s ease-in-out infinite;
+}
+
+.admiration-decoration {
+    font-size: 1.8rem;
+    animation: spin-slow 8s linear infinite;
+}
+
+.admiration-content {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+
+.admiration-paragraph {
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.admiration-paragraph:hover {
+    transform: translateX(5px);
+}
+
+.sparkle-word {
+    color: #6495ed;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.sparkle-word::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #6495ed, transparent);
+    border-radius: 3px;
+}
+
+.floating-sparkle {
+    font-size: 1.2rem;
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.admiration-signature {
+    text-align: right;
+    margin-top: 30px;
+    font-size: 1.4rem;
+    color: #6495ed;
+}
+
+.beating-heart-xl {
+    display: inline-block;
+    font-size: 2rem;
+    animation: heartbeat-xl 1.5s ease-in-out infinite;
+}
+
+.admiration-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.adm-deco {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+}
+
+.d-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.d-2 { top: 20%; right: 8%; animation-delay: 1s; }
+.d-3 { bottom: 15%; left: 10%; animation-delay: 2s; }
+.d-4 { bottom: 30%; right: 5%; animation-delay: 3s; }
+.d-5 { top: 50%; left: 8%; animation-delay: 4s; }
+.d-6 { top: 70%; right: 10%; animation-delay: 2.5s; }
+.d-7 { bottom: 10%; right: 15%; animation-delay: 1.5s; }
+
+/* Mood bubbles */
+.mood-bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mood-bubble {
+    position: absolute;
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    animation: bubble-float 8s ease-in-out infinite;
+}
+
+.happy { top: 15%; right: 10%; animation-delay: 0s; }
+.angry { bottom: 20%; left: 8%; animation-delay: 1.5s; }
+.cute { top: 40%; left: 5%; animation-delay: 3s; }
+.silly { bottom: 30%; right: 12%; animation-delay: 4.5s; }
+.emotional { top: 70%; right: 8%; animation-delay: 2s; }
+.excited { top: 25%; left: 15%; animation-delay: 5.5s; }
+
+@keyframes gentle-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes bubble-float {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes heartbeat-xl {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .admiration-letter {
+        padding: 20px;
+    }
+    
+    .admiration-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .admiration-content {
+        font-size: 1.2rem;
+    }
+    
+    .admiration-signature {
+        font-size: 1.3rem;
+    }
+    
+    .mood-bubble {
+        font-size: 1.5rem;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admiration-container {
+        margin: 30px auto;
+    }
+    
+    .admiration-letter {
+        padding: 15px;
+    }
+    
+    .admiration-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .admiration-content {
+        font-size: 1.1rem;
+    }
+    
+    .mood-bubble {
+        font-size: 1.3rem;
+        width: 30px;
+        height: 30px;
+    }
 } 

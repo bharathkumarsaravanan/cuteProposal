@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize animations for the cutie letter
     animateCutieLetter();
+
+    // Initialize animations for the admiration letter
+    animateAdmirationLetter();
 });
 
 function createFloatingHearts() {
@@ -346,6 +349,91 @@ function createHeartBurst(x, y) {
         // Remove heart after animation completes
         setTimeout(() => {
             heart.remove();
+        }, 1000);
+    }
+}
+
+// Function to animate elements in the admiration letter
+function animateAdmirationLetter() {
+    // Animate the floating sparkles
+    const floatingSparkles = document.querySelectorAll('.floating-sparkle');
+    floatingSparkles.forEach(sparkle => {
+        setInterval(() => {
+            sparkle.classList.add('float-up');
+            setTimeout(() => {
+                sparkle.classList.remove('float-up');
+            }, 1000);
+        }, 3000 + Math.random() * 2000);
+    });
+    
+    // Animate the sparkle words
+    const sparkleWords = document.querySelectorAll('.sparkle-word');
+    sparkleWords.forEach(word => {
+        setInterval(() => {
+            word.classList.add('pulse-highlight');
+            setTimeout(() => {
+                word.classList.remove('pulse-highlight');
+            }, 1000);
+        }, 4000 + Math.random() * 3000);
+    });
+    
+    // Add click interaction to the letter
+    const admirationLetter = document.querySelector('.admiration-letter');
+    if (admirationLetter) {
+        admirationLetter.addEventListener('click', function(e) {
+            createSparkleExplosion(e.clientX, e.clientY);
+        });
+    }
+    
+    // Add hover effect to mood bubbles
+    const moodBubbles = document.querySelectorAll('.mood-bubble');
+    moodBubbles.forEach(bubble => {
+        bubble.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.3)';
+            this.style.zIndex = '10';
+        });
+        
+        bubble.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.zIndex = '0';
+        });
+    });
+}
+
+// Function to create a burst of sparkles when clicking on the letter
+function createSparkleExplosion(x, y) {
+    const container = document.querySelector('.love-container');
+    const sparkleEmojis = ['✨', '💫', '⭐', '🌟', '💖', '💕', '💓'];
+    
+    for (let i = 0; i < 15; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.innerHTML = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+        sparkle.className = 'sparkle-burst';
+        sparkle.style.position = 'fixed';
+        sparkle.style.left = x + 'px';
+        sparkle.style.top = y + 'px';
+        sparkle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        sparkle.style.pointerEvents = 'none';
+        sparkle.style.zIndex = '1000';
+        sparkle.style.transition = 'all 1s ease-out';
+        sparkle.style.opacity = '1';
+        
+        container.appendChild(sparkle);
+        
+        // Random direction explosion
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 150 + 50;
+        const xDestination = x + Math.cos(angle) * distance;
+        const yDestination = y + Math.sin(angle) * distance;
+        
+        setTimeout(() => {
+            sparkle.style.transform = `translate(${xDestination - x}px, ${yDestination - y}px) rotate(${Math.random() * 360}deg)`;
+            sparkle.style.opacity = '0';
+        }, 10);
+        
+        // Remove sparkle after animation completes
+        setTimeout(() => {
+            sparkle.remove();
         }, 1000);
     }
 } 
