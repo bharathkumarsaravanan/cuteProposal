@@ -16,6 +16,10 @@
       "dest": "/public/special.html"
     },
     {
+      "src": "/missing-her",
+      "dest": "/public/missing-her.html"
+    },
+    {
       "src": "/memories",
       "dest": "/public/memories.html"
     },
