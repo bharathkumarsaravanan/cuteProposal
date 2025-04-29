@@ -115,6 +115,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize animations for the admiration letter
     animateAdmirationLetter();
+
+    // Initialize animations for the missing-you letter
+    animateMissingYouLetter();
 });
 
 function createFloatingHearts() {
@@ -435,5 +438,70 @@ function createSparkleExplosion(x, y) {
         setTimeout(() => {
             sparkle.remove();
         }, 1000);
+    }
+}
+
+// Function to animate elements in the missing-you letter
+function animateMissingYouLetter() {
+    // Add click interaction to the letter
+    const missingYouLetter = document.querySelector('.missing-you-letter');
+    if (missingYouLetter) {
+        missingYouLetter.addEventListener('click', function(e) {
+            createHeartRain(e.clientX, e.clientY);
+        });
+        
+        // Add a gentle hover effect
+        missingYouLetter.addEventListener('mousemove', function(e) {
+            if (window.innerWidth > 768) { // Only on desktop
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleX = (x - centerX) / 40;
+                const angleY = (y - centerY) / 40;
+                
+                this.style.transform = `perspective(1000px) rotateX(${-angleY}deg) rotateY(${angleX}deg) translateZ(10px)`;
+            }
+        });
+        
+        missingYouLetter.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+    }
+}
+
+// Function to create a heart rain effect
+function createHeartRain(x, y) {
+    const container = document.querySelector('.love-container');
+    const heartEmojis = ['❤️', '💕', '💖', '💘', '💓', '💗', '💝', '💞'];
+    
+    for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+        heart.className = 'heart-rain';
+        heart.style.position = 'fixed';
+        heart.style.left = (x - 100 + Math.random() * 200) + 'px';
+        heart.style.top = (y - 50) + 'px';
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '1000';
+        heart.style.opacity = '1';
+        heart.style.transition = 'all 2s ease-out';
+        
+        container.appendChild(heart);
+        
+        // Fall down animation
+        setTimeout(() => {
+            heart.style.transform = `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`;
+            heart.style.opacity = '0';
+        }, 10);
+        
+        // Remove heart after animation completes
+        setTimeout(() => {
+            heart.remove();
+        }, 2000);
     }
 } 
