@@ -5,7 +5,7 @@ body {
     background-color: #fff0f5;
     color: #333;
     min-height: 100vh;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     background-image: radial-gradient(#ff9cce 1px, transparent 1px);
@@ -1280,5 +1280,138 @@ h1 {
     .missing-you-intro {
         font-size: 1.2rem;
         padding-left: 10px;
+    }
+}
+
+.convincing-her {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    perspective: 1000px;
+}
+
+.convincing-letter {
+    background: linear-gradient(135deg, #fff0f0 0%, #ffe0e0 100%);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(220, 20, 60, 0.3), 0 0 15px rgba(255, 105, 180, 0.5);
+    padding: 30px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    overflow: hidden;
+    border: 2px solid #ffb6c1;
+}
+
+.convincing-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.convincing-header h2 {
+    font-family: 'Pacifico', cursive;
+    color: #dc143c;
+    text-align: center;
+    margin: 0 15px;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(220, 20, 60, 0.2);
+    animation: gentle-sway 3s ease-in-out infinite;
+}
+
+.convincing-decoration {
+    font-size: 1.8rem;
+    animation: pulse-slow 5s ease-in-out infinite;
+}
+
+.convincing-content {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+
+.convincing-paragraph {
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.convincing-paragraph:hover {
+    transform: translateX(5px);
+}
+
+.convincing-signature {
+    text-align: right;
+    margin-top: 30px;
+    font-size: 1.4rem;
+    color: #dc143c;
+}
+
+.beating-heart-convince {
+    display: inline-block;
+    font-size: 2rem;
+    animation: heartbeat-intense 1.2s ease-in-out infinite;
+}
+
+.convincing-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.convince-deco {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+}
+
+.c-deco-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.c-deco-2 { top: 20%; right: 8%; animation-delay: 1s; }
+.c-deco-3 { bottom: 15%; left: 10%; animation-delay: 2s; }
+.c-deco-4 { bottom: 30%; right: 5%; animation-delay: 3s; }
+.c-deco-5 { top: 50%; left: 8%; animation-delay: 4s; }
+.c-deco-6 { top: 70%; right: 10%; animation-delay: 2.5s; }
+.c-deco-7 { bottom: 10%; right: 15%; animation-delay: 1.5s; }
+
+@media (max-width: 768px) {
+    .convincing-letter {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .convincing-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .convincing-content {
+        font-size: 1.2rem;
+    }
+    
+    .convincing-signature {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .convincing-letter {
+        padding: 15px;
+        margin: 15px;
+    }
+    
+    .convincing-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .convincing-content {
+        font-size: 1.1rem;
     }
 } 
